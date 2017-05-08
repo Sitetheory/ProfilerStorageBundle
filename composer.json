@@ -1,0 +1,50 @@
+{
+    "name": "sitetheory/profiler-storage-bundle",
+    "type": "symfony-bundle",
+    "description": "Sitetheory ProfilerStorageBundle",
+    "keywords": [
+        "symfony",
+        "php",
+        "profiler",
+        "storage",
+        "bundle",
+        "mongodb",
+        "mysql",
+        "pdo",
+        "pdo-mysql"
+    ],
+    "homepage": "https://sitetheory.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sitetheory Dev Team",
+            "email": "support@sitetheory.io",
+            "homepage": "https://sitetheory.io"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/framework-bundle": "~2.7|~3.0",
+        "symfony/console": "~2.7|~3.0",
+        "symfony/dependency-injection": "~2.7|~3.0"
+    },
+    "require-dev": {
+        "symfony/yaml": "~2.7|~3.0",
+        "symfony/validator": "~2.7|~3.0",
+        "symfony/property-info": "~2.8|~3.0",
+        "symfony/phpunit-bridge": "~2.7|~3.0",
+        "twig/twig": "~1.12|~2.0",
+        "phpunit/phpunit": "~4"
+    },
+    "suggest": {
+        "symfony/web-profiler-bundle": "To use the data collector."
+    },
+    "autoload": {
+        "psr-4": { "Sitetheory\\Bundle\\ProfilerStorageBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.6.x-dev"
+        }
+    }
+}

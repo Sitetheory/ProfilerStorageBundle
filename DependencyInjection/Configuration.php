@@ -17,11 +17,33 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sitetheory_profiler_storage');
+        $rootNode = $treeBuilder->root('library');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('profiler')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('defaultStorage')
+                            ->defaultTrue()
+                    ->end()
+                    ->scalarNode('class')
+                        ->defaultValue('')
+                    ->end()
+                    ->scalarNode('dsn')
+                        ->defaultValue('')
+                    ->end()
+                    ->scalarNode('username')
+                        ->defaultValue('')
+                    ->end()
+                    ->scalarNode('password')
+                        ->defaultValue('')
+                    ->end()
+                    ->scalarNode('ttl')
+                        ->defaultValue('3600')
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

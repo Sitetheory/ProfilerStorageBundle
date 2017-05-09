@@ -23,7 +23,12 @@ class SitetheoryProfilerStorageExtension extends FrameworkExtension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.yml');
+        // Root Configuration Parameters
+        $container->setParameter('sitetheory_profiler_storage.profiler.defaultEnabled',$config['profiler']['defaultStorage']);
+        $container->setParameter('sitetheory_profiler_storage.profiler.class',$config['profiler']['class']);
+        $container->setParameter('sitetheory_profiler_storage.profiler.dsn',$config['profiler']['dsn']);
+        $container->setParameter('sitetheory_profiler_storage.profiler.username',$config['profiler']['username']);
+        $container->setParameter('sitetheory_profiler_storage.profiler.password',$config['profiler']['password']);
+        $container->setParameter('sitetheory_profiler_storage.profiler.ttl',$config['profiler']['ttl']);
     }
 }

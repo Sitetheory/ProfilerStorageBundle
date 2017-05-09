@@ -24,17 +24,9 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/framework-bundle": "~2.7|~3.0",
-        "symfony/console": "~2.7|~3.0",
-        "symfony/dependency-injection": "~2.7|~3.0"
-    },
-    "require-dev": {
-        "symfony/yaml": "~2.7|~3.0",
-        "symfony/validator": "~2.7|~3.0",
-        "symfony/property-info": "~2.8|~3.0",
-        "symfony/phpunit-bridge": "~2.7|~3.0",
-        "twig/twig": "~1.12|~2.0",
-        "phpunit/phpunit": "~4"
+        "symfony/framework-bundle": "~2.7|~2.8|~3.0",
+        "symfony/dependency-injection": "~2.7|~2.8|~3.0",
+        "symfony/yaml": "~2.7|~2.8|~3.0"
     },
     "suggest": {
         "symfony/web-profiler-bundle": "To use the data collector."

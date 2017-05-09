@@ -12,7 +12,6 @@
 namespace Sitetheory\Bundle\ProfilerStorageBundle\Profiler;
 
 use Symfony\Component\HttpKernel\Profiler\Profile;
-use Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface;
 
 /**
  * Base PDO storage for profiling information in a PDO database.

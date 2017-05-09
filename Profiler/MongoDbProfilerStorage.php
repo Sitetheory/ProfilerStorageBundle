@@ -46,7 +46,7 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
      */
     public function find($ip, $url, $limit, $method, $start = null, $end = null)
     {
-        $cursor = $this->getMongo()->find($this->buildQuery($ip, $url, $method, $start, $end), array('_id', 'parent', 'ip', 'method', 'url', 'time', 'status_code'))->sort(array('time' => -1))->limit($limit);
+        $cursor = $this->getMongo()->find($this->buildQuery($ip, $url, $method, $start, $end), array('data' => 0))->sort(array('time' => -1))->limit((int) $limit);
 
         $tokens = array();
         foreach ($cursor as $profile) {

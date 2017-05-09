@@ -26,6 +26,30 @@ composer require sitetheory/profiler-storage-bundle
 ```
 
 ## Configuration
+Enable the Bundle:
+
+```php
+<?php
+// app/AppKernel.php
+
+// ...
+class AppKernel extends Kernel
+{
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+
+            new Sitetheory\Bundle\ProfilerStorageBundle\SitetheoryProfilerStorageBundle()
+        );
+
+        // ...
+    }
+
+    // ...
+}
+```
+
 Add the following to your `config.yml` to control the location for Profiler Storage:
 
 ```yaml

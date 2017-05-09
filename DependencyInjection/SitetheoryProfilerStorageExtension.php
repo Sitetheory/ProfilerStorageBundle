@@ -24,7 +24,7 @@ class SitetheoryProfilerStorageExtension extends FrameworkExtension
         $config = $this->processConfiguration($configuration, $configs);
 
         // Root Configuration Parameters
-        $container->setParameter('sitetheory_profiler_storage.profiler.defaultEnabled',$config['profiler']['defaultStorage']);
+        $container->setParameter('sitetheory_profiler_storage.profiler.defaultStorage',$config['profiler']['defaultStorage']);
         $container->setParameter('sitetheory_profiler_storage.profiler.class',$config['profiler']['class']);
         $container->setParameter('sitetheory_profiler_storage.profiler.dsn',$config['profiler']['dsn']);
         $container->setParameter('sitetheory_profiler_storage.profiler.username',$config['profiler']['username']);

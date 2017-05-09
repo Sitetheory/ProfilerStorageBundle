@@ -19,9 +19,22 @@ We'll be maintaining the following Profiler Bindings for the foreseeable future:
 # Installation
 
 ## Composer
+Add this bundle to your Composer Package and follow the configuration below.
+
 ```bash
 composer require sitetheory/profiler-storage-bundle
 ```
 
 ## Configuration
-Coming Soon
+Add the following to your `config.yml` to control the location for Profiler Storage:
+
+```yaml
+sitetheory_profiler_storage:
+    profiler:
+        defaultStorage: false
+        class: Sitetheory\Bundle\ProfilerStorageBundle\Profiler\MysqlProfilerStorage
+        dsn: "mysql:host=%host%;port=%port%;dbname=%name%"
+        username: "%user%"
+        password: "%password%"
+        ttl: 3600
+```

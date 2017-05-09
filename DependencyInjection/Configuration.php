@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('library');
+        $rootNode = $treeBuilder->root('sitetheory_profiler_storage');
 
         $rootNode
             ->children()

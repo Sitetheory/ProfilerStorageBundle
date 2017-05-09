@@ -16,7 +16,7 @@ class ProfilerCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $definition = $container->getDefinition('profiler');
-        $definition->addArgument('%sitetheory_profiler_storage.profiler.defaultEnabled%');
+        $definition->addArgument('%sitetheory_profiler_storage.profiler.defaultStorage%');
         $definition->addArgument('%sitetheory_profiler_storage.profiler.class%');
         $definition->addArgument('%sitetheory_profiler_storage.profiler.dsn%');
         $definition->addArgument('%sitetheory_profiler_storage.profiler.username%');

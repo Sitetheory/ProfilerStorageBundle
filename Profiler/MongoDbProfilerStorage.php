@@ -119,8 +119,11 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
         }
 
         list($server, $database, $collection) = $parsedDsn;
+        /* FIXME: This adds backwards compatibility but cannot function for modern implementations *
         $mongoClass = version_compare(phpversion('mongo'), '1.3.0', '<') ? '\Mongo' : '\MongoClient';
         $mongo = new $mongoClass($server);
+        /* */
+        $mongo = new \MongoClient($server);
 
         return $this->mongo = $mongo->selectCollection($database, $collection);
     }
@@ -258,11 +261,14 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
         $server = $matches[1];
         $database = $matches[2];
         $collection = $matches[3];
+
+        /* FIXME: This adds backwards compatibility but cannot function for modern implementations *
         preg_match('#^mongodb://(([^:]+):?(.*)(?=@))?@?([^/]*)(.*)$#', $server, $matchesServer);
 
         if ('' == $matchesServer[5] && '' != $matches[2]) {
             $server .= '/'.$matches[2];
         }
+        /* */
 
         return array($server, $database, $collection);
     }

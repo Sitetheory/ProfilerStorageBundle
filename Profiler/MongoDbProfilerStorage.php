@@ -44,9 +44,9 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
     /**
      * {@inheritdoc}
      */
-    public function find($ip, $url, $limit, $method, $start = null, $end = null)
+    public function find($ip, $url, $limit, $method, $start = null, $end = null, $statusCode = null)
     {
-        $cursor = $this->getMongo()->find($this->buildQuery($ip, $url, $method, $start, $end), array('data' => 0))->sort(array('time' => -1))->limit(intval($limit));
+        $cursor = $this->getMongo()->find($this->buildQuery($ip, $url, $method, $start, $end, $statusCode), array('data' => 0))->sort(array('time' => -1))->limit(intval($limit));
 
         $tokens = array();
         foreach ($cursor as $profile) {
@@ -177,10 +177,11 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
      * @param string $method
      * @param int    $start
      * @param int    $end
+     * @param int    $statusCode
      *
      * @return array
      */
-    private function buildQuery($ip, $url, $method, $start, $end)
+    private function buildQuery($ip, $url, $method, $start, $end, $statusCode)
     {
         $query = array();
 
@@ -206,6 +207,10 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
 
         if (!empty($end)) {
             $query['time']['$lte'] = $end;
+        }
+
+        if (!empty($statusCode)) {
+            $query['status_code'] = $statusCode;
         }
 
         return $query;

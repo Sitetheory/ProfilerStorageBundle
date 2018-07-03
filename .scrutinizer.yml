@@ -10,10 +10,6 @@ build:
                     -
                         command: phpcs-run
                         use_website_config: true
-                    - js-scrutinizer-run
-                    -
-                        command: jshint-run
-                        use_website_config: false
             environment:
                 mongodb:
                     version: '3.2'
@@ -24,17 +20,12 @@ filter:
     paths:
         - 'DependencyInjection/*'
         - 'Profiler/*'
+        - 'Tests/*'
+        - 'SitetheoryProfilerStorageBundle.php'
 checks:
     php:
         code_rating: true
         duplication: true
-coding_style:
-    php:
-        spaces:
-            around_operators:
-                concatenation: true
-            other:
-                after_type_cast: false
 build_failure_conditions:
     - 'elements.rating(<= C).new.exists'                        # No new classes/methods with a rating of C or worse allowed
     - 'issues.severity(>= MAJOR).new.exists'                    # New issues of major or higher severity

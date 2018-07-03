@@ -230,16 +230,13 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
     }
 
     /**
-     * @param $data
+     * @param \MongoDB\Model\BSONDocument $data
      *
      * @return array
      */
-    private function getData($data)
+    private function getData(\MongoDB\Model\BSONDocument $data)
     {
-        $data = $data instanceof \MongoDB\Model\BSONDocument ? $data->getArrayCopy() : $data;
-        if (!is_array($data)) {
-            throw new \InvalidArgumentException('$data is not a valid BSONDocument or array.');
-        }
+        $data = $data->getArrayCopy();
 
         return array(
             'token' => $data['_id'],

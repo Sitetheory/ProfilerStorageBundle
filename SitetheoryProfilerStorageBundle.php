@@ -7,8 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Sitetheory\Bundle\ProfilerStorageBundle\DependencyInjection\Compiler\ProfilerCompilerPass;
 
 /**
- * Class SitetheoryProfilerStorageBundle
- * @package Sitetheory\Bundle\ProfilerStorageBundle
+ * Class SitetheoryProfilerStorageBundle.
  */
 class SitetheoryProfilerStorageBundle extends Bundle
 {

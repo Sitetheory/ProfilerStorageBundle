@@ -15,7 +15,6 @@ namespace Sitetheory\Bundle\ProfilerStorageBundle\Profiler;
  * Memcached Profiler Storage.
  *
  * Class MemcachedProfilerStorage
- * @package Sitetheory\Bundle\ProfilerStorageBundle\Profiler
  *
  * @author Andrej Hudec <pulzarraider@gmail.com>
  */

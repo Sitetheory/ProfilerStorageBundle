@@ -6,8 +6,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Class Configuration
- * @package Sitetheory\Bundle\ProfilerStorageBundle\DependencyInjection
+ * Class Configuration.
  */
 class Configuration implements ConfigurationInterface
 {

@@ -17,7 +17,6 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
  * Base Memcache storage for profiling information in a Memcache.
  *
  * Class BaseMemcacheProfilerStorage
- * @package Sitetheory\Bundle\ProfilerStorageBundle\Profiler
  *
  * @author Andrej Hudec <pulzarraider@gmail.com>
  */
@@ -58,11 +57,11 @@ abstract class BaseMemcacheProfilerStorage implements ProfilerStorageInterface
         $result = array();
 
         foreach ($profileList as $item) {
-            if ($limit === 0) {
+            if (0 === $limit) {
                 break;
             }
 
-            if ($item == '') {
+            if ('' == $item) {
                 continue;
             }
 
@@ -124,7 +123,7 @@ abstract class BaseMemcacheProfilerStorage implements ProfilerStorageInterface
         $profileList = explode("\n", $indexContent);
 
         foreach ($profileList as $item) {
-            if ($item == '') {
+            if ('' == $item) {
                 continue;
             }
 
@@ -162,7 +161,9 @@ abstract class BaseMemcacheProfilerStorage implements ProfilerStorageInterface
         $data = array(
             'token' => $profile->getToken(),
             'parent' => $profile->getParentToken(),
-            'children' => array_map(function ($p) { return $p->getToken(); }, $profile->getChildren()),
+            'children' => array_map(function ($p) {
+                return $p->getToken();
+            }, $profile->getChildren()),
             'data' => $profile->getCollectors(),
             'ip' => $profile->getIp(),
             'method' => $profile->getMethod(),

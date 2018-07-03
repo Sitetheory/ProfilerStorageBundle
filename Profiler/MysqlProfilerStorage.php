@@ -15,7 +15,6 @@ namespace Sitetheory\Bundle\ProfilerStorageBundle\Profiler;
  * A ProfilerStorage for Mysql.
  *
  * Class MysqlProfilerStorage
- * @package Sitetheory\Bundle\ProfilerStorageBundle\Profiler
  *
  * @author Jan Schumann <js@schumann-it.com>
  */

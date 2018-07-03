@@ -17,7 +17,6 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
  * Base PDO storage for profiling information in a PDO database.
  *
  * Class PdoProfilerStorage
- * @package Sitetheory\Bundle\ProfilerStorageBundle\Profiler
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Jan Schumann <js@schumann-it.com>

@@ -15,7 +15,6 @@ namespace Sitetheory\Bundle\ProfilerStorageBundle\Profiler;
  * SqliteProfilerStorage stores profiling information in a SQLite database.
  *
  * Class SqliteProfilerStorage
- * @package Sitetheory\Bundle\ProfilerStorageBundle\Profiler
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

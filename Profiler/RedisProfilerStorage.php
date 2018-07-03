@@ -17,7 +17,6 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
  * RedisProfilerStorage stores profiling information in Redis.
  *
  * Class RedisProfilerStorage
- * @package Sitetheory\Bundle\ProfilerStorageBundle\Profiler
  *
  * @author Andrej Hudec <pulzarraider@gmail.com>
  * @author Stephane PY <py.stephane1@gmail.com>
@@ -68,11 +67,11 @@ class RedisProfilerStorage implements ProfilerStorageInterface
         $result = array();
 
         foreach ($profileList as $item) {
-            if ($limit === 0) {
+            if (0 === $limit) {
                 break;
             }
 
-            if ($item == '') {
+            if ('' == $item) {
                 continue;
             }
 
@@ -128,7 +127,7 @@ class RedisProfilerStorage implements ProfilerStorageInterface
         $result = array();
 
         foreach ($profileList as $item) {
-            if ($item == '') {
+            if ('' == $item) {
                 continue;
             }
 
@@ -168,7 +167,9 @@ class RedisProfilerStorage implements ProfilerStorageInterface
         $data = array(
             'token' => $profile->getToken(),
             'parent' => $profile->getParentToken(),
-            'children' => array_map(function ($p) { return $p->getToken(); }, $profile->getChildren()),
+            'children' => array_map(function ($p) {
+                return $p->getToken();
+            }, $profile->getChildren()),
             'data' => $profile->getCollectors(),
             'ip' => $profile->getIp(),
             'method' => $profile->getMethod(),
@@ -214,7 +215,7 @@ class RedisProfilerStorage implements ProfilerStorageInterface
         if (null === $this->redis) {
             $data = parse_url($this->dsn);
 
-            if (false === $data || !isset($data['scheme']) || $data['scheme'] !== 'redis' || !isset($data['host']) || !isset($data['port'])) {
+            if (false === $data || !isset($data['scheme']) || 'redis' !== $data['scheme'] || !isset($data['host']) || !isset($data['port'])) {
                 throw new \RuntimeException(sprintf('Please check your configuration. You are trying to use Redis with an invalid dsn "%s". The minimal expected format is "redis://[host]:port".', $this->dsn));
             }
 

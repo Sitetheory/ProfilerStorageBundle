@@ -1,0 +1,13 @@
+framework:
+    profiler:
+        enabled: true
+        collect: false
+
+sitetheory_profiler_storage:
+    profiler:
+        defaultStorage: false
+        class: Sitetheory\Bundle\ProfilerStorageBundle\Profiler\MongoDbProfilerStorage
+        dsn: "mongodb://127.0.0.1:27017/test/profiler"
+        #username: "test"
+        #password: "test"
+        ttl: 86400

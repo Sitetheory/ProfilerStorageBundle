@@ -1,0 +1,41 @@
+build:
+    nodes:
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+                    - js-scrutinizer-run
+                    -
+                        command: jshint-run
+                        use_website_config: false
+            environment:
+                mongodb:
+                    version: '3.2'
+                php:
+                    version: '7.1.12'
+        tests: true
+filter:
+    paths:
+        - 'DependencyInjection/*'
+        - 'Profiler/*'
+checks:
+    php:
+        code_rating: true
+        duplication: true
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true
+            other:
+                after_type_cast: false
+build_failure_conditions:
+    - 'elements.rating(<= C).new.exists'                        # No new classes/methods with a rating of C or worse allowed
+    - 'issues.severity(>= MAJOR).new.exists'                    # New issues of major or higher severity
+    - 'project.metric_change("scrutinizer.test_coverage", < 0)' # Code Coverage decreased from previous inspection

@@ -1,10 +1,12 @@
-# ProfilerStorageBundle
+# ProfilerStorageBundle [![License](https://poser.pugx.org/sitetheory/profiler-storage-bundle/license)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)
 Sitetheory Profiler Storage Bundle for Symfony 2.8+
 
+## Build Information
 [![Latest Stable Version](https://poser.pugx.org/sitetheory/profiler-storage-bundle/version)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)
-[![Total Downloads](https://poser.pugx.org/sitetheory/profiler-storage-bundle/downloads)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/sitetheory/profiler-storage-bundle/v/unstable)](//packagist.org/packages/sitetheory/profiler-storage-bundle)
-[![License](https://poser.pugx.org/sitetheory/profiler-storage-bundle/license)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)
+[![Total Downloads](https://poser.pugx.org/sitetheory/profiler-storage-bundle/downloads)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)
+
+## Code Inspection
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/?branch=master)

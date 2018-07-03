@@ -1,7 +1,7 @@
 # ProfilerStorageBundle [![License](https://poser.pugx.org/sitetheory/profiler-storage-bundle/license)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)
 Sitetheory Profiler Storage Bundle for Symfony 2.8+
 
-## Package Info
+## Package Information
 [![Latest Stable Version](https://poser.pugx.org/sitetheory/profiler-storage-bundle/version)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/sitetheory/profiler-storage-bundle/v/unstable)](//packagist.org/packages/sitetheory/profiler-storage-bundle)
 [![Total Downloads](https://poser.pugx.org/sitetheory/profiler-storage-bundle/downloads)](https://packagist.org/packages/sitetheory/profiler-storage-bundle)

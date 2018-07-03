@@ -17,14 +17,25 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
  * MongoDbProfilerStorage stores profiling information in a Mongo database.
  *
  * Class MongoDbProfilerStorage
- * @package Sitetheory\Bundle\ProfilerStorageBundle\Profiler
  *
  * @author Fabien Potencier <fabien@symfony.com>
+ * @author Alex Gurrola <alex@sitetheory.io>
  */
 class MongoDbProfilerStorage implements ProfilerStorageInterface
 {
+    /**
+     * @var string
+     */
     protected $dsn;
+
+    /**
+     * @var int
+     */
     protected $lifetime;
+
+    /**
+     * @var \MongoDB\Collection
+     */
     private $mongo;
 
     /**
@@ -46,7 +57,10 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
      */
     public function find($ip, $url, $limit, $method, $start = null, $end = null, $statusCode = null)
     {
-        $cursor = $this->getMongo()->find($this->buildQuery($ip, $url, $method, $start, $end, $statusCode), array('data' => 0))->sort(array('time' => -1))->limit(intval($limit));
+        $cursor = $this->getMongo()->find(
+            $this->buildQuery($ip, $url, $method, $start, $end, $statusCode),
+            array('data' => 0, 'sort' => array('time' => -1), 'limit' => intval($limit))
+        );
 
         $tokens = array();
         foreach ($cursor as $profile) {
@@ -61,7 +75,7 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
      */
     public function purge()
     {
-        $this->getMongo()->remove(array());
+        return $this->getMongo()->deleteMany(array());
     }
 
     /**
@@ -96,17 +110,19 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
             'status_code' => $profile->getStatusCode(),
         );
 
-        $result = $this->getMongo()->update(array('_id' => $profile->getToken()), array_filter($record, function ($v) { return !empty($v); }), array('upsert' => true));
+        $result = $this->getMongo()->updateOne(array('_id' => $profile->getToken()), array(
+            '$set' => array_filter($record, function ($v) {
+                return !empty($v);
+            }),
+        ), array('upsert' => true));
 
-        return (bool) (isset($result['ok']) ? $result['ok'] : $result);
+        return $result->isAcknowledged();
     }
 
     /**
      * Internal convenience method that returns the instance of the MongoDB Collection.
      *
-     * @return \MongoCollection
-     *
-     * @throws \RuntimeException
+     * @return \MongoDB\Collection
      */
     protected function getMongo()
     {
@@ -119,13 +135,10 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
         }
 
         list($server, $database, $collection) = $parsedDsn;
-        /* FIXME: This adds backwards compatibility but cannot function for modern implementations *
-        $mongoClass = version_compare(phpversion('mongo'), '1.3.0', '<') ? '\Mongo' : '\MongoClient';
-        $mongo = new $mongoClass($server);
-        /* */
-        $mongo = new \MongoClient($server);
 
-        return $this->mongo = $mongo->selectCollection($database, $collection);
+        $client = new \MongoDB\Client('mongodb://'.$server.'/'.$database);
+
+        return $this->mongo = $client->selectCollection($database, $collection);
     }
 
     /**
@@ -168,7 +181,7 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
 
     protected function cleanup()
     {
-        $this->getMongo()->remove(array('time' => array('$lt' => time() - $this->lifetime)));
+        $this->getMongo()->deleteMany(array('time' => array('$lt' => time() - $this->lifetime)));
     }
 
     /**
@@ -217,12 +230,17 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
     }
 
     /**
-     * @param array $data
+     * @param $data
      *
      * @return array
      */
-    private function getData(array $data)
+    private function getData($data)
     {
+        $data = $data instanceof \MongoDB\Model\BSONDocument ? $data->getArrayCopy() : $data;
+        if (!is_array($data)) {
+            throw new \InvalidArgumentException('$data is not a valid BSONDocument or array.');
+        }
+
         return array(
             'token' => $data['_id'],
             'parent' => isset($data['parent']) ? $data['parent'] : null,
@@ -259,7 +277,7 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
      */
     private function parseDsn($dsn)
     {
-        if (!preg_match('#^(mongodb://.*)/(.*)/(.*)$#', $dsn, $matches)) {
+        if (!preg_match('#^mongodb://(.*)/(.*)/(.*)$#', $dsn, $matches)) {
             return;
         }
 

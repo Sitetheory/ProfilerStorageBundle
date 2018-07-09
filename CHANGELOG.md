@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Added
+### Added:
 
 - Changelog
 
@@ -24,13 +24,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.1.3] - 2017-05-24
 
-### Added
+### Added:
 
 - MongoDB Status Code Queries in Symfony 3.1+
 
 ## [0.1.2] - 2017-05-23
 
-### Fixed
+### Fixed:
 
 - MongoDB Inefficiencies
 

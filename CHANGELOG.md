@@ -47,4 +47,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 [0.1.3]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.0...0.1.1
-[0.1.0]: https://github.com/Sitetheory/ProfilerStorageBundle/tree/aa6fc035febc2f66d42db0bba3dd9d0b7b6f2ec7...0.1.0
+[0.1.0]: https://github.com/Sitetheory/ProfilerStorageBundle/tree/0.1.0

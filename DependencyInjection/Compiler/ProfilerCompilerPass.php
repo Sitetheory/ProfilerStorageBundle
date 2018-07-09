@@ -15,6 +15,10 @@ class ProfilerCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $definition = $container->getDefinition('profiler');
+        // Compatibility for Definitions from Symfony 2.7 to 3.3
+        if (2 === count($definition->getArguments())) {
+            $definition->addArgument(true);
+        }
         $definition->addArgument('%sitetheory_profiler_storage.profiler.defaultStorage%');
         $definition->addArgument('%sitetheory_profiler_storage.profiler.class%');
         $definition->addArgument('%sitetheory_profiler_storage.profiler.dsn%');

@@ -59,7 +59,7 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
     {
         $cursor = $this->getMongo()->find(
             $this->buildQuery($ip, $url, $method, $start, $end, $statusCode),
-            array('data' => 0, 'sort' => array('time' => -1), 'limit' => intval($limit))
+            array('projection' => array('data' => 0), 'sort' => array('time' => -1), 'limit' => intval($limit))
         );
 
         $tokens = array();

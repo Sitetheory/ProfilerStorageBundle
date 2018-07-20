@@ -32,6 +32,8 @@ Add this bundle to your Composer Package and follow the configuration below.
 composer require sitetheory/profiler-storage-bundle
 ```
 
+If you are using MongoDB, you will also need to add the MongoDB Driver.  Instructions are available in the official repository: [github.com/mongodb/mongo-php-library](https://github.com/mongodb/mongo-php-library).
+
 ## Configuration
 Enable the Bundle:
 

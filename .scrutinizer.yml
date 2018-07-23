@@ -18,10 +18,10 @@ build:
         tests: true
 filter:
     paths:
-        - 'DependencyInjection/*'
-        - 'Profiler/*'
-        - 'Tests/*'
-        - 'SitetheoryProfilerStorageBundle.php'
+        - 'src/DependencyInjection/*'
+        - 'src/Profiler/*'
+        - 'src/Tests/*'
+        - 'src/SitetheoryProfilerStorageBundle.php'
 checks:
     php:
         code_rating: true

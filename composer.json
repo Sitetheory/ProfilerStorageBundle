@@ -35,7 +35,7 @@
         "symfony/web-profiler-bundle": "To use the data collector."
     },
     "autoload": {
-        "psr-4": { "Sitetheory\\Bundle\\ProfilerStorageBundle\\": "" }
+        "psr-4": { "Sitetheory\\Bundle\\ProfilerStorageBundle\\": "src/" }
     },
     "extra": {
         "branch-alias": {

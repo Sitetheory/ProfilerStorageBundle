@@ -55,5 +55,5 @@ composer.lock
 .php_cs.cache
 
 # Test Kernel
-Tests/Functional/app/cache
-Tests/Functional/app/logs
+src/Tests/Functional/app/cache
+src/Tests/Functional/app/logs

@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TBD
 
+## [0.1.7] - 2018-09-13
+
+### Changed:
+
+- Move all code into a src directory for PSR-4
+
 ## [0.1.6] - 2018-07-19
 
 ### Added:
@@ -60,7 +66,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Initial Symfony Port
 
-[Unreleased]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.6...HEAD
+[Unreleased]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.7...HEAD
+[0.1.7]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.6...0.1.7
 [0.1.6]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.3...0.1.4

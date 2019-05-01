@@ -59,7 +59,11 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
     {
         $cursor = $this->getMongo()->find(
             $this->buildQuery($ip, $url, $method, $start, $end, $statusCode),
-            array('projection' => array('data' => 0), 'sort' => array('time' => -1), 'limit' => intval($limit))
+            array(
+                'projection' => array('data' => 0),
+                'sort' => array('time' => -1),
+                'limit' => intval($limit)
+            )
         );
 
         $tokens = array();
@@ -223,7 +227,7 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
         }
 
         if (!empty($statusCode)) {
-            $query['status_code'] = $statusCode;
+            $query['status_code'] = intval($statusCode);
         }
 
         return $query;
@@ -275,7 +279,7 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
     private function parseDsn($dsn)
     {
         if (!preg_match('#^mongodb://(.*)/(.*)/(.*)$#', $dsn, $matches)) {
-            return;
+            return null;
         }
 
         $server = $matches[1];

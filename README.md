@@ -8,6 +8,12 @@ Sitetheory Profiler Storage Bundle for Symfony 2.8+
 
 ## Code Inspection
 
+### Travis CI
+
+[![Build Status](https://travis-ci.com/Sitetheory/ProfilerStorageBundle.svg?branch=master)](https://travis-ci.com/Sitetheory/ProfilerStorageBundle)
+
+### Scrutinizer
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Sitetheory/ProfilerStorageBundle/build-status/master)

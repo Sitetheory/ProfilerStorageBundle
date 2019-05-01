@@ -207,9 +207,9 @@ class PredisProfilerStorage implements ProfilerStorageInterface
     /**
      * Internal convenience method that returns the instance of Redis.
      *
-     * @return \Redis
-     *
      * @throws \RuntimeException
+     *
+     * @return \Redis
      */
     protected function getRedis()
     {
@@ -224,7 +224,7 @@ class PredisProfilerStorage implements ProfilerStorageInterface
                 throw new \RuntimeException('PredisProfilerStorage requires that the predis is installed.');
             }
 
-            $redis = new \Predis\Client($this->dsn, ['prefix' => self::TOKEN_PREFIX]);
+            $redis = new \Predis\Client($this->dsn, array('prefix' => self::TOKEN_PREFIX));
 
             $this->redis = $redis;
         }
@@ -331,7 +331,7 @@ class PredisProfilerStorage implements ProfilerStorageInterface
     {
         $redis = $this->getRedis();
 
-        return unserialize($redis->get($key), ['allowed_classes' => true]);
+        return unserialize($redis->get($key), array('allowed_classes' => true));
     }
 
     /**
@@ -365,8 +365,8 @@ class PredisProfilerStorage implements ProfilerStorageInterface
         $redis = $this->getRedis();
 
         if ($redis->exists($key)) {
-        	$data = unserialize($redis->get($key));
-        	$data .= $value;
+            $data = unserialize($redis->get($key));
+            $data .= $value;
 
             return $redis->setex($key, $expiration, serialize($data));
         }

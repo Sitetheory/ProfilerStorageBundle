@@ -1,9 +1,14 @@
 language: php
 dist: xenial
+services:
+  - mongodb
+  - mysql
+  - redis-server
 php:
   - '5.6'
   - '7.0'
   - '7.1'
+  - '7.3'
 cache:
   directories:
     - vendor

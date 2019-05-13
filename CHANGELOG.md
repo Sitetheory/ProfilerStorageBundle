@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - TBD
 
+## [0.1.8] - 2019-05-13
+
+### Added:
+
+-PHP-CS-Fixer Config
+-Basic Travis Config
+
+### Changed:
+
+-GIT Ignore Filters
+
+### Fixed:
+
+- Mongo Status Code Search
+
 ## [0.1.7] - 2018-09-13
 
 ### Changed:
@@ -66,7 +81,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Initial Symfony Port
 
-[Unreleased]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.7...HEAD
+[Unreleased]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.8...HEAD
+[0.1.8]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.6...0.1.7
 [0.1.6]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/Sitetheory/ProfilerStorageBundle/compare/0.1.4...0.1.5

@@ -8,5 +8,7 @@ php:
 cache:
   directories:
     - vendor
+before_install:
+  - phpenv config-add php_config.ini
 before_script:
   - composer update

@@ -1,5 +1,4 @@
 language: php
-sudo: required
 dist: xenial
 php:
   - '5.5'
@@ -9,3 +8,5 @@ php:
 cache:
   directories:
     - vendor
+before_script:
+  - composer update

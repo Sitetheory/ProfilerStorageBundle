@@ -1,0 +1,26 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->exclude('bin')
+    ->exclude('public')
+    ->exclude('var')
+    ->exclude('vendor')
+    ->in(__DIR__)
+;
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR1' => true,
+        '@PSR2' => true,
+        '@Symfony' => true,
+        '@PhpCsFixer' => true,
+        'array_syntax' => ['syntax' => 'long'],
+        'no_null_property_initialization' => false,
+        'ordered_class_elements' => false,
+        'ordered_imports' => false,
+        'return_assignment' => false,
+        'simplified_null_return' => false,
+        'strict_param' => false,
+    ])
+    ->setFinder($finder)
+    ;

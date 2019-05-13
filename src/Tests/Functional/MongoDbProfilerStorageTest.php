@@ -8,6 +8,10 @@ use Sitetheory\Bundle\ProfilerStorageBundle\Profiler\Profiler;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class FunctionalTest extends TestCase
 {
     /**

@@ -6,6 +6,7 @@
 
 # Email spool folder
 /app/spool/*
+!/app/spool/.gitkeep
 
 # Cache, session files and logs (Symfony3)
 /var/cache/*
@@ -31,9 +32,6 @@
 /web/bundles/
 /web/uploads/
 
-# Assets managed by Bower
-/web/assets/vendor/
-
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
@@ -41,17 +39,33 @@
 # Build data
 /build/
 
-# Composer
+# Composer PHAR
 /composer.phar
 composer.lock
 
 # Backup entities generated with doctrine:generate:entities command
-*/Entity/*~
+**/Entity/*~
 
-# JetBrains IDE
+# Embedded web-server pid file
+/.web-server-pid
+
+# Extensions
+*.class
+*.pyc
+*.pyo
+
+# OSX
+.DS_Store
+
+# IDE Stuff (This covers PHPStorm, IntelliJ IDEA, Aptana, and Eclipse)
 .idea/
+.idea-new
+.settings
+.jar
+.ide_plugins/
 
 # PHP CS Fixer
+.php_cs
 .php_cs.cache
 
 # Test Kernel

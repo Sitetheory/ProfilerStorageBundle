@@ -12,12 +12,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added:
 
--PHP-CS-Fixer Config
--Basic Travis Config
+- PHP-CS-Fixer Config
+- Basic Travis Config
 
 ### Changed:
 
--GIT Ignore Filters
+- GIT Ignore Filters
 
 ### Fixed:
 

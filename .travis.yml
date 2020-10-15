@@ -14,4 +14,4 @@ cache:
 before_install:
   - phpenv config-add php_config.ini
 before_script:
-  - composer install --no-interaction
+  - composer install --dev --no-interaction

@@ -140,6 +140,10 @@ class MongoDbProfilerStorage implements ProfilerStorageInterface
 
         list($server, $database, $collection) = $parsedDsn;
 
+        if (!extension_loaded('mongodb')) {
+            throw new \RuntimeException('Please ensure the PHP Mongo library is installed and enabled in your php.ini.');
+        }
+
         $client = new \MongoDB\Client('mongodb://'.$server.'/'.$database);
 
         return $this->mongo = $client->selectCollection($database, $collection);

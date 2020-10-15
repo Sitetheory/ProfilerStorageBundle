@@ -2,7 +2,8 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->exclude('bin')
-    ->exclude('public')
+    ->exclude('node_modules')
+    ->exclude('public/bundles')
     ->exclude('var')
     ->exclude('vendor')
     ->in(__DIR__)
@@ -15,12 +16,21 @@ return PhpCsFixer\Config::create()
         '@Symfony' => true,
         '@PhpCsFixer' => true,
         'array_syntax' => ['syntax' => 'long'],
+        'function_typehint_space' => true,
+        'is_null' => false,
+        'method_argument_space' => true,
+        'method_chaining_indentation' => false,
+        'multiline_whitespace_before_semicolons' => false,
         'no_null_property_initialization' => false,
+        'no_superfluous_phpdoc_tags' => false,
         'ordered_class_elements' => false,
         'ordered_imports' => false,
         'return_assignment' => false,
         'simplified_null_return' => false,
+        'simple_to_complex_string_variable' => true,
         'strict_param' => false,
+        'ternary_to_null_coalescing' => false,
+        'trailing_comma_in_multiline_array' => false,
     ])
     ->setFinder($finder)
     ;
